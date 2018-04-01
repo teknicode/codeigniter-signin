@@ -16,7 +16,7 @@ Add `teknicode_signin` to the `$autoload['libraries']` array in application/conf
 Alternatively you can load in the controller using
 
 ```php
-$this->load->library("teknicode_signin")
+$this->load->library("teknicode_signin");
 ```
 
 #### Create a Login controller
@@ -27,7 +27,7 @@ class Login extends CI_Controller {
         parent::__construct();
         /*
         * if $_POST['username'] && $_POST['password'] exist,
-        * this class function will attempt to login 
+        * this class method will attempt to login 
         */
         $this->teknicode_signin->login();
     }
@@ -45,13 +45,13 @@ class Login extends CI_Controller {
 
 #### Force user to login
 
-To force a user login, add this to the `__construct` function of the controller in question.
-All routes through that controller will require login before access is granted.
+To force a user login, add this to the `__construct` method of the controller in question.
+All routes through the controller will require login before access is granted.
 
 ```php
 $this->teknicode_signin->secure();
 ```
-If your controller doesn't have a `__construct` function use you'll need to create one.
+If your controller doesn't have a `__construct` method use you'll need to create one.
 
 ```php
 public function __construct(){
