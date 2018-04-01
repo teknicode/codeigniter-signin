@@ -4,8 +4,24 @@
 
 Place `Teknicode_signin.php` into you application/libraries directory.
 
-Setup a users mysql database table with the following fields:
-id (int) Primary Key Auto Increment, username (varchar 255), password (varchar 255), last_update (datetime)
+Setup a users mysql database table with the following structure
+
+```mysql
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+```
 
 ## Usage
 
